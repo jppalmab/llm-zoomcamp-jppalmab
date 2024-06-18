@@ -47,3 +47,13 @@ index.search(q)
 # results
 
 # ----------------------------------------------------------------------------------
+
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="gpt-4o", message=[{"role": "user", "content": q}]
+)
+
+response.choices[0].message[0].content
